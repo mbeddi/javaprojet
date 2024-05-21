@@ -1,0 +1,77 @@
+<html
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        
+        .navbar {
+            margin-bottom: 50px;
+        }
+        .card {
+            margin-top: 50px;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .container {
+            max-width: 600px;
+        }
+    </style>
+
+<title>Insert title here</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">MyHolidays'sApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{welcome}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{employeconge}">Consulter Congés</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{formconge}">Solliciter Congé</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{welcome}">Profil</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+	<section layout:fragment="content">
+	
+	</section>
+<footer class="navbar-fixed-bottom">
+	<hr/>
+	<div class ="container">
+		<small>
+		----Gestion de congés----
+		</small>
+	</div>
+</footer>
+</body>
+</html>
