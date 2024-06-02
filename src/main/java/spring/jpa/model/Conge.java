@@ -15,32 +15,36 @@ public class Conge {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	private String description;
-	
-	@DateTimeFormat (pattern = "yyyy-MM-dd")
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date dateDebut;
-	
-	@DateTimeFormat (pattern = "yyyy-MM-dd")
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date dateFin;
-	
-	@DateTimeFormat (pattern = "yyyy-MM-dd")
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
-	private Date dateRupture ;
-	private EtatConge etatconge = EtatConge.Sollicite;
-	
+	private Date dateRupture;
+	private String etatconge = EtatConge.Sollicite.toString();
+
 	@ManyToOne
 	private Employe employe;
-	
+
 	public Conge() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Conge(String description, Date dateDebut, Date dateFin, EtatConge etatconge,
-			Employe employe) {
+	public Conge(User user) {
+		super();
+		this.employe = (Employe) user;
+	}
+
+	public Conge(String description, Date dateDebut, Date dateFin, String etatconge, Employe employe) {
 		super();
 		this.description = description;
 		this.dateDebut = dateDebut;
@@ -56,15 +60,15 @@ public class Conge {
 		this.dateFin = dateFin;
 		this.employe = employe;
 	}
-	
+
 	public Conge(String description, Date dateDebut, Date dateFin) {
 		super();
 		this.description = description;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 	}
-	
-	public Conge(Long id,String description, Date dateDebut, Date dateFin) {
+
+	public Conge(Long id, String description, Date dateDebut, Date dateFin) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -112,11 +116,11 @@ public class Conge {
 		this.dateRupture = dateRupture;
 	}
 
-	public EtatConge getEtatconge() {
+	public String getEtatconge() {
 		return etatconge;
 	}
 
-	public void setEtatconge(EtatConge etatconge) {
+	public void setEtatconge(String etatconge) {
 		this.etatconge = etatconge;
 	}
 

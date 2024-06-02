@@ -1,54 +1,143 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-layout:decorate="~{layout}" >
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        
-        .navbar {
-            margin-bottom: 50px;
-        }
-        .card {
-            margin-top: 50px;
-            border: 1px solid #dee2e6;
-            border-radius: 0.25rem;
-        }
-        .card-header {
-            background-color: #007bff;
-            color: white;
-        }
-        .form-group label {
-            font-weight: bold;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-        .container {
-            max-width: 600px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulaire</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+.navbar {
+	margin-bottom: 50px;
+}
+
+.card {
+	margin-top: 50px;
+	border: 1px solid #dee2e6;
+	border-radius: 0.25rem;
+}
+
+.card-header {
+	background-color: #007bff;
+	color: white;
+}
+
+.form-group label {
+	font-weight: bold;
+}
+
+.btn-primary {
+	background-color: #007bff;
+	border-color: #007bff;
+}
+
+.btn-primary:hover {
+	background-color: #0056b3;
+	border-color: #0056b3;
+}
+
+.container {
+	max-width: 600px;
+}
+
+.carousel-item img {
+	width: 100%;
+	height: 400px;
+	object-fit: cover;
+}
+</style>
 </head>
 <body>
-<div layout:fragment="content">
+	<div layout:fragment="content">
+		<div class="header">
+			<h1 class="display-4 text-primary text-center">Bienvenue sur le
+				Portail des Congés</h1>
+			<h2 class="text-center">
+				Bonjour <span class="text-primary font-weight-bold"
+					th:text="${user.nom}"></span>!
+		</div>
 
-<div class="header">
-        <h2 class="text-center">Welcome, Employé : <span class="text-primary" th:text="${userName}"></span>!</p></h2>
-    </div>
-    <a class="btn btn-primary" th:href="@{/logout}">Logout</a>
-	
-<hr>
+		<!-- Carousel -->
+		<div id="carouselExampleIndicators" class="carousel slide"
+			data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0"
+					class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="/images/maternite.webp" class="d-block w-100 " alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Congé maternité</h5>
+						<p>Profitez de vos congés de maternité pendant votre période
+							de grossesse.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="/images/maladie.jpg" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Congé maladie</h5>
+						<p>Profitez de vos congés de maladie pendant votre période de
+							maladie.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="/images/formation.jpg" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Congé formation</h5>
+						<p>Profitez de vos congés de formation...</p>
+					</div>
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleIndicators"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
+		</div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<!-- Content -->
+		<div class="container mt-5">
+
+			<div class="jumbotron">
+				<!-- Ajoutez plus de contenu ici -->
+				<p class="lead">Nous sommes ravis de vous accueillir sur notre
+					plateforme de gestion des congés.</p>
+				<p>Vous pouvez facilement :</p>
+				<ul class="list-unstyled">
+					<li><i class="fa fa-check-circle text-success"></i> Solliciter
+						de nouveaux congés</li>
+					<li><i class="fas fa-check-circle text-success"></i> Consulter
+						l'état de vos demandes de congé en cours</li>
+					<li><i class="fas fa-check-circle text-success"></i> Vérifier
+						votre solde de congés restants</li>
+				</ul>
+				<p class="lead">Si vous avez des questions ou besoin
+					d'assistance, n'hésitez pas à contacter notre équipe de support.</p>
+				<p class="lead">Bonne journée et bonne utilisation de notre
+					application !</p>
+			</div>
+		</div>
+
+
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
 </html>

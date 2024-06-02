@@ -9,6 +9,6 @@ import spring.jpa.model.Employe;
 
 public interface EmployeRepository extends JpaRepository<Employe, Long> {
 
-	List<Employe>findByLoginAndPassword(String login, String password);
-	//List<Conge> findBEmploye(Employe emp);
+	List<Employe> findByLoginAndPassword(String login, String password);
+	// List<Conge> findBEmploye(Employe emp);
 }

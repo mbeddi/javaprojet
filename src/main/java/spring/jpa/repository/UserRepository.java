@@ -8,8 +8,7 @@ import spring.jpa.model.Employe;
 import spring.jpa.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-
-
-
 	User findByLoginAndPassword(String login, String password);
+
+	Employe findByCode(String employeeCode);
 }

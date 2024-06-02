@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>dev.spring</groupId>
 	<artifactId>spring-boot-mini-projet</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>3.2.5</version>
 	<name>spring-boot-mini-projet</name>
 	<description>Gestion de congés</description>
 	<properties>

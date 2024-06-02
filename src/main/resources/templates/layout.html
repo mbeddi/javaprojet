@@ -7,7 +7,17 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <title>Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+        }
         .navbar {
             margin-bottom: 50px;
         }
@@ -34,44 +44,63 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
         .container {
             max-width: 600px;
         }
+        footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 
 <title>Insert title here</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">MyHolidays'sApp</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">AL_CA1_ProjetSpringBoot</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{welcome}">Home <span class="sr-only">(current)</span></a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/conge/welcome}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class=" dropdown me-3" data-theme="dark">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Menu
+          </a>
+          <ul class="dropdown-menu" >
+            <li ><a class="dropdown-item" th:href="@{/conge/employeId/{employeId}(employeId=${user.id})}">Consulter Congé</a></li>
+            <li><a class="dropdown-item" th:href="@{/conge/formconge(employeId=${user.id})}" th:classappend="${errorNb == true ? 'disabled' : ''}">Demander Congé</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="">
+              <a class="dropdown-item btn-danger bs-danger" th:href="@{/conge/logout}">Logout</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{employeconge}">Consulter Congés</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{formconge}">Solliciter Congé</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{welcome}">Profil</a>
-            </li>
-        </ul>
+          </ul>
+        </li>
+        <li >
+        	<form class="d-flex" role="search">
+		        <input class="form-control ps-2 me-2" type="search" placeholder="Search" aria-label="Search">
+		        <button class="btn btn-outline-success " type="submit">Search</button>
+	        </form>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 
 	<section layout:fragment="content">
 	
 	</section>
-<footer class="navbar-fixed-bottom">
+<footer class="navbar-fixed-bottom bg-primary">
 	<hr/>
-	<div class ="container">
-		<small>
-		----Gestion de congés----
-		</small>
+	<div class ="container text-center">
+		<span class="text-light fw-bold">Gestion de congés</span>
 	</div>
+	<div class="container text-center">
+        <span class="text-light fw-bold">© 2024 Votre Application</span>
+    </div>
 </footer>
+
 </body>
 </html>
